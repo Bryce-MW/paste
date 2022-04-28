@@ -9,13 +9,13 @@ rtf, html, etc. Other types will show up but display as `(null)` if you try to p
 ## Compiling
 Compilation is very simple since this is just one file. I use clang to compile. It's probably possible to
 cross compile for macOS on some other platform if you know the right flags. Anyway, just run
-`clang paste.m -framework AppKit -framework CoreFoundation -o paste`. This will output a `./paste` binary
+`clang paste.m -framework AppKit -framework CoreFoundation -o taste`. This will output a `./taste` binary
 that you can install or do whatever else you want with.
 
 ## Using
-To run, use `paste` which shows all of the paste types found on your clipboard. Specify the type to get it
-`paste public.utf8-plain-text` or `paste public.rtf`. If you want to get all types, use
-`--all` or `-a`: `paste --all`. More than one argument is not supported. That's about all there is to it.
+To run, use `taste` which shows all of the paste types found on your clipboard. Specify the type to get it
+`taste public.utf8-plain-text` or `taste public.rtf`. If you want to get all types, use
+`--all` or `-a`: `taste --all`. More than one argument is not supported. That's about all there is to it.
 
 ## License
 Created by Bryce Wilson. See the license file for the license. If you need anything outside of that or
