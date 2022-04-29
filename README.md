@@ -1,4 +1,4 @@
-# Paste
+# Taste
 When copying something to the clipboard on macOS, there will often be multiple types that the clipboard
 contents can be pasted as. For some reason, there is no good way to find out what types are on the
 clipboard and extract the one you want. The built in `pbpaste` command does plain text just fine and claims
@@ -9,7 +9,7 @@ rtf, html, etc. Other types will show up but display as `(null)` if you try to p
 ## Compiling
 Compilation is very simple since this is just one file. I use clang to compile. It's probably possible to
 cross compile for macOS on some other platform if you know the right flags. Anyway, just run
-`clang paste.m -framework AppKit -framework CoreFoundation -o taste -O3`. This will output a `./taste` binary
+`clang taste.m -framework AppKit -framework CoreFoundation -o taste -O3`. This will output a `./taste` binary
 that you can install or do whatever else you want with.
 
 Additionally, I've written a version that uses C rather than Objective-C. I've done some hacks to allow it
@@ -18,7 +18,7 @@ I've tested the speed and both programs take almost exactly the same time to run
 if I could and to figure out how to do it in an easy environment before I implement it in a more difficult
 one like another language where you couldn't just compile in Objective-C mode if you want. Anyway, to
 compile this version, run
-`clang paste.c -fuse-ld=lld -framework AppKit -framework CoreFoundation -o tastec -O3`. It may not work
+`clang taste.c -fuse-ld=lld -framework AppKit -framework CoreFoundation -o tastec -O3`. It may not work
 with the default compiler than apple ships, I had some issues with that. I used the version from Homebrew
 which does take some setting up to get working, another reason why I don't recommed doing this. I'm sure
 there is some way to trick Apple's linker into working but I have not figured it out yet! Let me know if
