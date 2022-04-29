@@ -1,5 +1,6 @@
 #import <memory.h>
 #import <printf.h>
+#import <objc/objc.h>
 #import <CoreFoundation/CFArray.h>
 #import <AppKit/NSPasteboard.h>
 
@@ -10,13 +11,9 @@ int main(int argc, char** argv) {
     NSPasteboard* pasteboard = [NSPasteboard generalPasteboard];
     if (argc == 1 || !memcmp(argv[1], "-a", sizeof("-a")) || !memcmp(argv[1], "--all", sizeof("--all"))) {
       NSArray* copiedItems = [pasteboard pasteboardItems];
-      CFIndex itemCount = CFArrayGetCount((CFArrayRef)copiedItems);
-      for (CFIndex i = 0; i < itemCount; i++) {
-        NSPasteboardItem* item = CFArrayGetValueAtIndex((CFArrayRef)copiedItems, i);
+      for (NSPasteboardItem* item in copiedItems) {
         NSArray* types = [item types];
-        CFIndex typeCount = CFArrayGetCount((CFArrayRef)types);
-        for (CFIndex j = 0; j < typeCount; j++) {
-          NSPasteboardType type = CFArrayGetValueAtIndex((CFArrayRef)types, j);
+        for (NSPasteboardType type in types) {
           if (argc == 1) {
             printf("%s\n", [type UTF8String]);
           } else {
