@@ -12,7 +12,7 @@ jobs:
       run: echo ::set-output name=VERSION::${GITHUB_REF/refs\/tags\//}
     - uses: actions/checkout@v3
     - name: Create a Release
-      run: $GITHUB_ACTION_PATH/entrypoint.sh
+      run: ./.github/workflows/entrypoint.sh
       shell: bash
       env:
         GITHUB_TOKEN: ${{ secrets.RELEASE_TOKEN }}
