@@ -7,10 +7,13 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+    - name: Get the version
+      id: get_version
+      run: echo ::set-output name=VERSION::${GITHUB_REF/refs\/tags\//}
     - uses: actions/checkout@v3
     - name: Create a Release
-      uses: elgohr/Github-Release-Action@v4
+      run: $GITHUB_ACTION_PATH/entrypoint.sh
+      shell: bash
       env:
         GITHUB_TOKEN: ${{ secrets.RELEASE_TOKEN }}
-      with:
-        title: New release of paste
+        INPUT_TITLE: ${{ steps.get_version.outputs.VERSION }}
